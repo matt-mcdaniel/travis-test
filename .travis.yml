@@ -1,0 +1,20 @@
+sudo: true
+language: node_js
+node_js:
+- '7.6.0'
+cache:
+  yarn: false
+  directories:
+    - node_modules
+env:
+  global:
+  # heroku-related commands
+before_deploy:
+  - npm run build
+deploy:
+  - edge: true
+    provider: script
+    script: if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then cf zero-downtime-push <My-app> -f ./manifest.yml; else echo "PR skip deploy"; fi
+    skip_cleanup: true
+    on:
+      branch: master
