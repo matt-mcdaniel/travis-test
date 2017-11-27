@@ -15,5 +15,6 @@ deploy:
   provider: heroku
   api_key: ${HEROKU_API_KEY}
   skip_cleanup: true
+  app: travis-test-1
   on:
     branch: master
