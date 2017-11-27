@@ -12,6 +12,10 @@ env:
 before_deploy:
   - npm run build
 deploy:
+  provider: heroku
+  api_key:
+    secure: ${HEROKU_API_KEY}
+deploy:
   - edge: true
     provider: script
     script: if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then cf zero-downtime-push <My-app> -f ./manifest.yml; else echo "PR skip deploy"; fi
