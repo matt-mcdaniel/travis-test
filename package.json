@@ -28,12 +28,7 @@
         "presets": ["es2015", "stage-2"]
     },
     "jest": {
-        "collectCoverageFrom": [
-            "!/node_modules/",
-            "!src/index.js",
-            "!src/registerServiceWorker.js",
-            "src/**/*.js"
-        ],
+        "collectCoverageFrom": ["!/node_modules/", "src/**/*.js"],
         "coverageThreshold": {
             "global": {
                 "branches": 80,
