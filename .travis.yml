@@ -11,6 +11,7 @@ env:
   # heroku-related commands
 before_deploy:
   - npm run build
+  - npm test -- --coverage
 deploy:
   provider: heroku
   api_key: ${HEROKU_API_KEY}
