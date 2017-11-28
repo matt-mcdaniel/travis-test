@@ -12,6 +12,10 @@
         "react-dom": "^16.1.1",
         "react-scripts": "1.0.17"
     },
+    "devDependencies": {
+        "babel-watch": "^2.0.7",
+        "concurrently": "^3.5.1"
+    },
     "scripts": {
         "start": "./node_modules/.bin/babel-node index.js",
         "dev":
@@ -23,8 +27,20 @@
     "babel": {
         "presets": ["es2015", "stage-2"]
     },
-    "devDependencies": {
-        "babel-watch": "^2.0.7",
-        "concurrently": "^3.5.1"
+    "jest": {
+        "collectCoverageFrom": [
+            "!/node_modules/",
+            "!src/index.js",
+            "!src/registerServiceWorker.js",
+            "src/**/*.js"
+        ],
+        "coverageThreshold": {
+            "global": {
+                "branches": 80,
+                "functions": 80,
+                "lines": 80,
+                "statements": 80
+            }
+        }
     }
 }
